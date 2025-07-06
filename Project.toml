@@ -2,3 +2,9 @@ name = "ArticleEdits"
 uuid = "bd6513e3-a666-4820-8ce9-e7e2a950e2e8"
 authors = ["sam <samadritakarmakar@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+
+[compat]
+SHA = "0.7.0"
