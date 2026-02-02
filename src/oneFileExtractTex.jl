@@ -19,8 +19,10 @@ function getNamesOfUncommentedPicFiles(texFile::String, types = ["eps", "png", "
     commentedPicFiles = Set{String}()
     rejectedPicFiles = Set{String}()
     for type in types
-        commentedEx = Regex("\\%.*\\{.*\\.\\Q$type\\E\\}")
-        uncommentedEx = Regex("\\{.*\\.\\Q$type\\E\\}")
+        #commentedEx = Regex("\\%.*\\{.*\\.\\Q$type\\E\\}")
+        commentedEx = Regex("\\%.*\\{[^{}]*\\.\\Q$type\\E\\}")
+        #uncommentedEx = Regex("\\{.*\\.\\Q$type\\E\\}")
+        uncommentedEx = Regex("\\{[^{}]*\\.\\Q$type\\E\\}")
         #println("commentedEx: ", commentedEx)
         for matchingCommented = eachmatch(commentedEx, texFileContent)
             stringMatchingCommented = matchingCommented.match
@@ -107,11 +109,12 @@ Arguments:
 Returns:
 - `Nothing`: Performs the copy operation without returning a value.
 """
-function copyUncommentedPicFiles(texFileBase::String, targetDir::String, types = ["eps", "png", "jpg", "jpeg"]; excludeDirs = String[])
+function copyUncommentedPicFiles(texFileBase::String, targetDir::String, types = ["eps", "png", "jpg", "jpeg"]; excludeDirs = String[], 
+    overwrite::Bool = true)
     picFiles = getAllUncommentedPicFileNames(texFileBase)
     for picFile in picFiles
         if !any(x -> occursin(x, picFile), excludeDirs)
-            cp(picFile, joinpath(targetDir, basename(picFile)))
+            cp(picFile, joinpath(targetDir, basename(picFile)), force = overwrite)
         end
     end
 end
