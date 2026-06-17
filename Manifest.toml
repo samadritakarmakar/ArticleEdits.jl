@@ -1,9 +1,15 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.5"
-manifest_format = "2.0"
-project_hash = "dc57c4a69a5d36a329a37b6ee5e34623b7389599"
+julia_version = "1.13.0-rc1"
+manifest_format = "2.1"
+project_hash = "630d3cabc27f16708c88cb734f00048a00492527"
+
+[[deps.ArticleEdits]]
+deps = ["SHA"]
+path = "."
+uuid = "bd6513e3-a666-4820-8ce9-e7e2a950e2e8"
+version = "0.1.0"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
-version = "0.7.0"
+version = "1.0.0"
