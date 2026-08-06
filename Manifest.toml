@@ -2,7 +2,7 @@
 
 julia_version = "1.13.0-rc1"
 manifest_format = "2.1"
-project_hash = "630d3cabc27f16708c88cb734f00048a00492527"
+project_hash = "2783fee3858aeaf31854d44ce2a3906310bb06aa"
 
 [[deps.ArticleEdits]]
 deps = ["SHA"]
